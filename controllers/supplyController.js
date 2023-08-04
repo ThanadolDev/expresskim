@@ -1,5 +1,5 @@
 const supplymodel = require("../models/supplyModels");
-const upload = multer({ dest: './public/data/uploads/' })
+
 
 function getsp(req, res) {
   try {

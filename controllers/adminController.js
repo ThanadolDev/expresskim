@@ -1,4 +1,4 @@
-const admin = require('../models/adminModel.js')
+const admin = require('../models/adminModels.js')
 function loginController(){
     try {
         admin.login(async (err, data) => {
