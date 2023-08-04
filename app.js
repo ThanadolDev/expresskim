@@ -6,7 +6,7 @@ bodyParser = require('body-parser');
 
 const router = require("./router.js");
 
-app.use('/pizza',router);
+app.use('/api',router);
 
 
 db = mysql.createConnection({
@@ -16,17 +16,28 @@ db = mysql.createConnection({
     database: 'new_schema'
 })
 
-app.use('/', function(req,res){
-    let sql = `SELECT * FROM test`;
-    db.query(sql, function(err, data, fields) {
-      if (err) throw err;
-      res.json({
-        status: 200,
-        data,
-        message: "User lists retrieved successfully"
-      })
-    })
-})
+// const config = {
+//   db: {
+//     /* don't expose password or any sensitive info, done only for demo */
+//     host: "localhost",
+//     user: "root",
+//     password: "1234",
+//     database: "new_schema",
+//   }
+// };
+// module.exports = config;
+
+// app.use('/', function(req,res){
+//     let sql = `SELECT * FROM test`;
+//     db.query(sql, function(err, data, fields) {
+//       if (err) throw err;
+//       res.json({
+//         status: 200,
+//         data,
+//         message: "User lists retrieved successfully"
+//       })
+//     })
+// })
 
 console.log("listening to port 3000");
 app.listen(3000);
